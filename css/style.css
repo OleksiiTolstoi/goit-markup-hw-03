@@ -99,13 +99,7 @@ img {
   display: flex;
   align-items: center;
 }
-.site-nav .item {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-.site-nav .item + .item {
-  margin-left: 50px;
-}
+
 .site-nav .link.current {
   color: var(--accent-color);
 }
@@ -137,13 +131,14 @@ img {
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
 }
-.contacts .item {
+.site-nav-item {
   padding-top: 32px;
   padding-bottom: 32px;
 }
-.contacts .item + .item {
-  margin-left: 50px;
+.site-nav .item:not(:last-child) {
+  margin-right: 50px;
 }
+
 .contacts-item {
   font-family: "Roboto";
   font-style: normal;
@@ -153,7 +148,9 @@ img {
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
 }
-
+.contacts .item + .item {
+  margin-left: 50px;
+}
 .contacts :hover,
 .contacts :focus {
   color: var(--accent-color);
@@ -170,13 +167,13 @@ img {
   color: var(--title-text-color);
 }
 .hero {
-  padding-top: 200px 0;
-
+  padding-top: 200px;
+  padding-bottom: 200px;
   text-align: center;
   background-color: #2f303a;
 }
 .hero-btn {
-  margin-bottom: 205px;
+  margin-bottom: 0;
   display: inline-block;
   border-radius: 4px;
   padding: 10px 32px;
@@ -200,7 +197,7 @@ img {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 200px;
+
   max-width: 695px;
   font-weight: 900;
   font-size: 44px;
@@ -209,10 +206,12 @@ img {
   text-transform: uppercase;
   color: var(--background-color);
 }
-.feature-list {
-  display: flex;
+.section-feature {
   padding-top: 94px;
   padding-bottom: 94px;
+}
+.feature-list {
+  display: flex;
 }
 .features-item + .features-item {
   margin-left: 30px;
@@ -235,9 +234,11 @@ img {
   margin-bottom: 10px;
   margin-top: 0;
 }
+.section-works {
+  padding-bottom: 94px;
+}
 .work-list {
   display: flex;
-  padding-bottom: 94px;
 }
 .work-list-item {
   width: 370px;
@@ -247,19 +248,19 @@ img {
   margin-left: 30px;
 }
 .section-team {
+  padding: 94px;
   background-color: #e5e5e5;
 }
 
 .team {
   display: flex;
-  padding-bottom: 94px;
 }
 .team-people + .team-people {
   margin-left: 30px;
 }
 .team .title {
-  margin-top: 30px;
   margin-bottom: 0;
+  margin-top: 0;
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
@@ -270,8 +271,10 @@ img {
 .team-people {
   background-color: var(--background-color);
 }
+.team-text {
+  padding: 30px 0;
+}
 .team-work {
-  padding-bottom: 30px;
   font-size: 16px;
   line-height: 1.18;
   text-align: center;
@@ -279,16 +282,13 @@ img {
   margin-bottom: 0;
   margin-top: 10px;
 }
-.section-team .section-title {
-  padding-top: 94px;
-}
-
 .footer {
+  padding: 60px 0;
   background-color: #2f303a;
 }
 .logo-footer {
   display: flex;
-  padding-top: 60px;
+
   color: var(--background-color);
   font-family: "Raleway";
   font-style: normal;
@@ -315,6 +315,20 @@ img {
   color: var(--accent-color);
 }
 .footer-contacts list link {
+  display: block;
+}
+
+.footer-adress {
+  margin-top: 20px;
+  margin-bottom: 9px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.contacts-item-text {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -323,32 +337,21 @@ img {
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
 }
-.footer-contacts {
-  display: block;
-  padding-bottom: 51px;
-}
-.footer-adress {
-  padding-top: 20px;
-  margin-bottom: 9px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  color: #ffffff;
-}
-.footer-info {
+.footer-info:not(:last-child) {
   margin-bottom: 9px;
 }
-
 .footer-contacts :hover,
 .footer-contacts :focus {
   color: var(--accent-color);
 }
 
 /* Страница Портфолио*/
+.section-portfolio {
+  padding-top: 96px;
+  padding-bottom: 92px;
+}
 .filter {
   display: flex;
-  padding-top: 96px;
   justify-content: center;
   margin-bottom: 50px;
   column-gap: 8px;
@@ -365,11 +368,10 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  padding-bottom: 92px;
 }
 .examples-title {
-  margin-top: 20px;
   margin-bottom: 4px;
+  margin-top: 0;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -384,8 +386,7 @@ img {
   border: 1px solid #ececec;
 }
 .examples-discription {
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 0;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.88;
@@ -393,6 +394,9 @@ img {
   width: 322px;
 
   color: #757575;
+}
+.portfolio-text {
+  padding: 20px 24px;
 }
 .btn {
   display: inline-block;
